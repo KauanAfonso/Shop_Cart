@@ -1,6 +1,5 @@
 <?php
 
-require_once "Products.php";
 require_once "Cart.php";
 
 $products_list = array(
@@ -19,3 +18,7 @@ $products_list = array(
 $cart = new Cart('Kauan', $products_list);
 print_r($cart->show_products());
 
+
+$cart->add_product("Camiseta",2);
+$cart->add_product("Cinto de Couro",1);
+print_r($cart->get_cart());

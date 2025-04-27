@@ -18,6 +18,27 @@ class Cart{
             return $this->products;
         }
 
+        public function add_product($product_name, $quantity = 1){
+            foreach ($this->products as $product) {
+        
+                if($product["name"] == $product_name){
+                    $product["quantity"] = $quantity;
+                    $this->cart_list[] = $product;
+                    return "Product has benn added";
+                }
+            }
+            
+             return "Produto não encontrado !";
+            
+        }
+
+
+        public function get_cart(){
+            return $this->cart_list;
+        }
+
+
+
 }
 
 
