@@ -2,6 +2,8 @@
 
 require_once "Cart.php";
 
+
+//Criando os produtos
 $products_list = array(
     array("name" => "Camiseta", "description" => "Camiseta de algodão, confortável e estilosa.", "price" => 49.90),
     array("name" => "Calça Jeans", "description" => "Calça jeans modelo skinny, disponível em diversas cores.", "price" => 89.90),
@@ -15,10 +17,12 @@ $products_list = array(
     array("name" => "Cinto de Couro", "description" => "Cinto de couro resistente, ideal para o dia a dia.", "price" => 69.90)
 );
 
+
+//Utilizando a Classe Cart
 $cart = new Cart('Kauan', $products_list);
 print_r($cart->show_products());
-
-
 $cart->add_product("Camiseta",2);
 $cart->add_product("Cinto de Couro",1);
+$cart->alter_quantity(5, "Camiseta");
 print_r($cart->get_cart());
+echo("O total do carrinho é de: " . $cart->get_total());
