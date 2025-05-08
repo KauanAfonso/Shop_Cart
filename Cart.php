@@ -27,10 +27,8 @@ class Cart{
                 if($product["name"] == $product_name){
                     $product["quantity"] = $quantity;
                     $this->cart_list[] = $product;
-                    return "Product has benn added";
                 }
             }
-            
              return "Produto não encontrado !";
             
         }
@@ -42,6 +40,7 @@ class Cart{
 
         //Função encpasualada para dar o update no valor total
         private function update_value_total(){
+            $this->value_total =0;
             foreach ($this->cart_list as $product) {
                 $this->value_total += ($product["quantity"] * $product["price"]);
             }
@@ -59,12 +58,20 @@ class Cart{
                 if($product["name"] == $product_name){
                     $product["quantity"] = $quantity;
                     echo "Produto encontrado";
-                    $this->update_value_total();
                 }
+                $this->update_value_total();
                 return;
             }
+        }
 
-        
+        public function delete_produtc($product_name){
+            foreach ($this->cart_list as &$product) {
+                if($product["name"] == $product_name){
+                   unset($product['name']);
+                }
+                $this->update_value_total();
+                return;
+            }
         }
 
 }

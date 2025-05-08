@@ -24,5 +24,7 @@ print_r($cart->show_products());
 $cart->add_product("Camiseta",2);
 $cart->add_product("Cinto de Couro",1);
 $cart->alter_quantity(5, "Camiseta");
+$cart->add_product("Mochila", 2);
 print_r($cart->get_cart());
+$cart->delete_produtc('Camiseta');
 echo("O total do carrinho é de: " . $cart->get_total());
